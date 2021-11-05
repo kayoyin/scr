@@ -1,0 +1,79 @@
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel">
+                <a href="/tasks/{{ talk_id }}"><input class="btn btn-primary" style="margin:5px; float: right; text-align:center; font-size:100%; "
+                    type="resume" value="Resume" id="resume"></a>
+                <a href="/"><input class="btn btn-primary" style="margin:5px; float: right; text-align:center; font-size:100%"
+                                   type="mainmenu" value="Main Menu" id="mainmenu"></a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="row" style="width:100%;">
+            <div class="panel">
+                <h3>Select an example from Task {{ talk_id + 1 }} to edit:</h3>
+                <table style="width:100%;" id="myTable">
+                    <head>
+                        <tr>
+                            <td style="width:15%;">Example</td>
+                            <td style="width:60%;">Gloss</td>
+                            <td style="width:20%;">Answer</td>
+                            <td style="width:5%;">Conf</td>
+                          </tr>
+                    </head>
+                    <body>
+
+                    </body>
+                  </table>
+                  <script>
+                    var table = document.getElementById("myTable");
+                    var n_rows = "{{ num_rows }}";
+                    var menurows = {{ menu_rows | safe }};
+                    var answers = {{ answers | safe }};
+                    var confidence = {{confidence | safe}};
+                    console.log(menurows);
+                    for (var i = 0; i < n_rows; i++) {
+                        var row = table.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        j = i + 1;
+                        cell1.innerHTML = "<a href='/tasks/{{ talk_id }}/" + i + "'> Example " + j + "</a>" ;
+                        cell2.innerHTML = menurows[i];
+                        cell3.innerHTML = answers[i];
+                        cell4.innerHTML = confidence[i];
+                    }
+                  </script>
+
+            </div>
+    </div>
+</section>
+
+<!-- Link to external style sheet -->
+<link href="/static/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+    td {
+        font-size: 20px;
+        padding: 10px;
+        border: 1px solid gray;
+    }
+    th {
+        font-size: 20px;
+        padding: 10px;
+    }
+    .talk {
+        width: 50%;
+    }
+    .prog {
+        width: 25%;
+    }
+    table {
+        table-layout: auto;
+        padding: 10px;
+    }
+</style>

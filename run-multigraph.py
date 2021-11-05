@@ -20,11 +20,6 @@ parser.add_argument('-out',
                     dest='output_filename',
                     required=True,
                     help='The output file.')
-parser.add_argument('-ante',
-                    dest='antecedents_output_filename',
-                    default=None,
-                    help='The file where antecedent information should be'
-                         'written to. Defaults to None.')
 parser.add_argument("--model",
                     default="multigraph",
                     type=str)
@@ -63,10 +58,5 @@ decoder.decode(corpus)
 logging.info("Writing coreference to file")
 
 corpus.write_to_file(open(args.output_filename, 'w'))
-
-if args.antecedents_output_filename:
-    logging.info("Writing antecedent decisions to file")
-    corpus.write_antecedent_decisions_to_file(
-        open(args.antecedents_output_filename, 'w'))
 
 logging.info("Finished")

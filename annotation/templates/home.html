@@ -1,0 +1,812 @@
+<!-- For responsiveness -->
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+{% with messages = get_flashed_messages(with_categories=true) %}
+<!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible" role="alert" style="background: #FFFFE0; font-size: 16px">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-8 col-md-8">
+            <div class="panel">
+                <a href="/logout"><input class="btn btn-primary" style="margin:5px; float: right; text-align:center; font-size:100%; "
+                    type="logout" value="Log out" id="logout"></a>
+                
+                <h3>Select a task to annotate:</h3>
+                <h4>(Overall progress {{ completed }} / {{ total }})</h4>
+                <table class="table">
+                    <thead>
+                        <th scope="col">Task</th>
+                        <th scope="col">Edit Previous</th>
+                        <th scope="col">Progress</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/0">
+                                    Task 1
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/0/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed0 }} / {{ total0 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/1">
+                                    Task 2
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/1/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed1 }} / {{ total1 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/2">
+                                    Task 3
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/2/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed2 }} / {{ total2 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/3">
+                                    Task 4
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/3/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed3 }} / {{ total3 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/4">
+                                    Task 5
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/4/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed4 }} / {{ total4 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/5">
+                                    Task 6
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/5/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed5 }} / {{ total5 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/6">
+                                    Task 7
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/6/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed6 }} / {{ total6 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/7">
+                                    Task 8
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/7/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed7 }} / {{ total7 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/8">
+                                    Task 9
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/8/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed8 }} / {{ total8 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/9">
+                                    Task 10
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/9/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed9 }} / {{ total9 }}
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/10">
+                                    Task 11
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/10/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed10 }} / {{ total10 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/11">
+                                    Task 12
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/11/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed11 }} / {{ total11 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/12">
+                                    Task 13
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/12/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed12 }} / {{ total12 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/13">
+                                    Task 14
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/13/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed13 }} / {{ total13 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/14">
+                                    Task 15
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/14/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed14 }} / {{ total14 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/15">
+                                    Task 16
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/15/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed15 }} / {{ total15 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/16">
+                                    Task 17
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/16/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed16 }} / {{ total16 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/17">
+                                    Task 18
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/17/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed17 }} / {{ total17 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/18">
+                                    Task 19
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/18/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed18 }} / {{ total18 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/19">
+                                    Task 20
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/19/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed19 }} / {{ total19 }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/20">
+                                    Task 21
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/20/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed20 }} / {{ total20 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/21">
+                                    Task 22
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/21/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed21 }} / {{ total21 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/22">
+                                    Task 23
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/22/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed22 }} / {{ total22 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/23">
+                                    Task 24
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/23/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed23 }} / {{ total23 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/24">
+                                    Task 25
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/24/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed24 }} / {{ total24 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/25">
+                                    Task 26
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/25/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed25 }} / {{ total25 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/26">
+                                    Task 27
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/26/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed26 }} / {{ total26 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/27">
+                                    Task 28
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/27/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed27 }} / {{ total27 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/28">
+                                    Task 29
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/28/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed28 }} / {{ total28 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/29">
+                                    Task 30
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/29/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed29 }} / {{ total29 }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/30">
+                                    Task 31
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/30/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed30 }} / {{ total30 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/31">
+                                    Task 32
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/31/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed31 }} / {{ total31 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/32">
+                                    Task 33
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/32/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed32 }} / {{ total32 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/33">
+                                    Task 34
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/33/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed33 }} / {{ total33 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/34">
+                                    Task 35
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/34/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed34 }} / {{ total34 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/35">
+                                    Task 36
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/35/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed35 }} / {{ total35 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/36">
+                                    Task 37
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/36/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed36 }} / {{ total36 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/37">
+                                    Task 38
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/37/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed37 }} / {{ total37 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/38">
+                                    Task 39
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/38/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed38 }} / {{ total38 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/39">
+                                    Task 40
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/39/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed39 }} / {{ total39 }}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/40">
+                                    Task 41
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/40/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed40 }} / {{ total40 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/41">
+                                    Task 42
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/41/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed41 }} / {{ total41 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/42">
+                                    Task 43
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/42/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed42 }} / {{ total42 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/43">
+                                    Task 44
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/43/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed43 }} / {{ total43 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/44">
+                                    Task 45
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/44/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed44 }} / {{ total44 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/45">
+                                    Task 46
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/45/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed45 }} / {{ total45 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/46">
+                                    Task 47
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/46/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed46 }} / {{ total46 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/47">
+                                    Task 48
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/47/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed47 }} / {{ total47 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/48">
+                                    Task 49
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/48/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed48 }} / {{ total48 }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="talk">
+                                <a href="tasks/49">
+                                    Task 50
+                                </a>
+                            </td>
+                            <td class="prog">
+                                <a href="tasks/49/menu">
+                                    Menu
+                                </a>
+                            </td>
+                            <td class="prog">
+                                {{ completed49 }} / {{ total49 }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Link to external style sheet -->
+<link href="/static/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+    td {
+        font-size: 20px;
+        padding: 10px;
+    }
+    th {
+        font-size: 20px;
+        padding: 10px;
+    }
+    .talk {
+        width: 50%;
+    }
+    .prog {
+        width: 25%;
+    }
+    table {
+        table-layout: auto;
+        padding: 10px;
+    }
+</style>

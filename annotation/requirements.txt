@@ -1,0 +1,5 @@
+flask
+urlparse
+werkzeug==0.16.0
+Authlib
+requests

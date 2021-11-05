@@ -1,0 +1,51 @@
+<!-- For responsiveness -->
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel">
+                <table class="table">
+                    <thead>
+                        <th scope="col">Username</th>
+                        <th scope="col">Number of completed annotations</th>
+                    </thead>
+                    <tbody>
+                        {% for username, num_annotated in usernames_and_num_annotated %}
+                            <tr>
+                                <td>{{ username }}</td>
+                                <td>{{ num_annotated }}</td>
+                            </tr>
+                        {% endfor %}
+
+                        <tr>
+                            <td></td>
+                            <td>Total Completed: {{ total_num_annotated }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total Required: {{ total_annotations_required }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Link to external style sheet -->
+<link href="/static/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+    td {
+        font-size: 20px;
+        padding: 10px;
+    }
+    th {
+        font-size: 20px;
+        padding: 10px;
+    }
+    table {
+        table-layout: auto;
+        padding: 10px;
+    }
+</style>

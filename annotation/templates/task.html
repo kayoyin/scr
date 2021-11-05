@@ -1,0 +1,396 @@
+<!-- For responsiveness -->
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+{% with messages = get_flashed_messages(with_categories=true) %}
+<!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+{% if messages %}
+{% for category, message in messages %}
+<div class="alert alert-{{ category }} alert-dismissible" role="alert" style="background: #FFFFE0; font-size: 16px">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<!-- Enable responsiveness -->
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<section class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="panel">
+                <!-- <h5 style="display: inline-block;">{{ num_remaining }} remaining examples to annotate.</h5> -->
+                <a href="/tasks/{{ talk_id }}/menu"><input class="btn btn-primary" style="margin:5px; float: right; text-align:center; font-size:100%; "
+                    type="taskmenu" value="Edit Previous Examples" id="taskmenu"></a>
+                <a href="/"><input class="btn btn-primary" style="margin:5px; float: right; text-align:center; font-size:100%"
+                                   type="mainmenu" value="Main Menu" id="mainmenu"></a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <form id="form_element" name="form_element" action="/add_row" method="post">
+        <br><br>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                 <h4>Task {{ id_task }} (Video {{ real_id }}) - Example {{ id_turn }}</h4>
+                 <h5>Video: <a href={{ link|safe }} target="_blank">{{ link }}</a></h5>
+                 <table style="width:100%">
+                    <colgroup>
+                      <col class="blue" />
+                      <col class="white"/>
+                      <col class="green"/>
+                      
+                    </colgroup>
+
+                    <tbody>
+                        <tr>
+
+                            <td><p>English context: </p>
+                                <p id="englishctx" class="text-align-left">{{ english_ctx|safe }} </p> 
+                                <textarea style="display:none;" class="form-control" id="english_ctx" name="english_ctx" readonly="readonly" type="hidden"> $("#english_ctx").val($("#englishctx").html()) </textarea>
+                             </td>
+                             <td></td>
+                             <td><p><b>Glosses context:</b></p>
+                                <p id="glossctx" class="text-align-left">{{ gloss_ctx|safe }}</p> 
+                                <textarea style="display:none;" class="form-control" id="gloss_ctx" name="gloss_ctx" readonly="readonly" type="hidden"> $("#gloss_ctx").val($("#glossctx").html()) </textarea>
+                            </td>
+                        </tr>
+                      <tr>
+                        <td><p>English: </p>
+                            <p id="en" class="text-align-left">{{ english|safe }} </p> <br><br>
+                            <textarea style="display:none;" class="form-control" id="english" name="english" readonly="readonly" type="hidden">$("#english").val($("#en").html())</textarea>
+                         </td>
+                         <td></td>
+                        <td><p>Glosses:</p>
+                            <p id="gl" class="text-align-left" style="white-space: pre-line">{{ gloss|safe }}</p> <br><br>
+                            <textarea style="display:none;" class="form-control" id="gloss" name="gloss" readonly="readonly" type="hidden">$("#gloss").val($("#gl").html())</textarea>
+
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <i>English context you highlighted:</i>
+                            <br>
+                            <ul id="list">
+                            </ul>
+                            <a id="remove">Reset Highlights</a>
+                          </td>
+                          <td></td>
+                          <td>
+                            <i>Gloss context you highlighted:</i>
+                            <br>
+                            <ul id="list2">
+                            </ul>
+                            <a id="remove2">Reset Highlights</a>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <i>English sentence you highlighted:</i>
+                          <br>
+                          <ul id="list3">
+                          </ul>
+                          <a id="remove3">Reset Highlights</a>
+                        </td>
+                        <td></td>
+                        <td>
+                          <i>Gloss sentence you highlighted:</i>
+                          <br>
+                          <ul id="list4">
+                          </ul>
+                          <a id="remove4">Reset Highlights</a>
+                        </td>
+                  </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        </p>
+                          <label for="conf">How confident are you? </label> <br><br>
+                          <p class="submission">
+                          <input class="btn btn-primary btn-submit" type="button" style="border: 1px solid #3C7639; background-color:#4B9347;color:white; " value="Not at all" id="conf0_submit">
+                          <input class="btn btn-primary btn-submit" type="button" style="border: 1px solid #3C7639; background-color:#4B9347;color:white; " value="Somewhat" id="conf1_submit">
+                          <input class="btn btn-primary btn-submit" type="button" style="border: 1px solid #3C7639; background-color:#4B9347;color:white; " value="Very" id="conf2_submit">
+                        </p>
+
+                        </td>      
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+       
+            </div>
+        </div>
+    </form>
+</section>
+
+<!-- Reference local bootstrap css -->
+<link href="/static/bootstrap.min.css" rel="stylesheet">
+
+<!-- Internal style sheet -->
+<style type="text/css">
+    .submission {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .text-align-left {
+        margin-left: 10px;
+        margin-right: auto;
+    }
+
+    .text-left {
+        margin-left: 100px;
+        margin-right: auto;
+    }
+
+    .text-center {
+        padding-left: 10%;
+        padding-right: 10%;
+        font-size: 100%
+    }
+
+    .btn-submit {
+        padding-left: 8%;
+        padding-right: 8%;
+        text-align: center;
+        font-size: 100%
+    }
+
+    .fulljustify {
+    	text-align:justify;
+    }
+    .fulljustify:after {
+        content: "";
+        display: inline-block;
+        width: 100%;	
+    }
+    #tagline {
+        height: 80px;
+        overflow: hidden;
+        line-height: 80px; /* vert-center */
+    }
+
+
+    .column {
+    float: left;
+    width: 50%;
+    }
+
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    }
+    table, th, td {
+    border: 0px solid rgb(189, 53, 53);
+    vertical-align: top;
+    }
+    th, td {
+    padding: 5px;
+    text-align: left;    
+    }
+    .white {
+        width: 0%;
+        border: 0px;
+        padding: 0px !important;
+        margin: 0px !important;
+    }
+
+    .blue {
+        width: 50%;
+        border: 3px solid #1880D1;
+    }
+    .green {
+        width: 50%;
+        border: 3px solid #4B9347;
+    }
+
+    .lightblue {
+    background-color:#E2F5FF;
+    width: 50%;
+    }
+    .lightgreen {
+    background-color:#DEF5E3;
+    width: 50%;
+    }
+
+</style>
+
+<!-- JS libraries -->
+<script src="/static/jquery-3.1.0.min.js" type="text/javascript"></script>
+<script src="/static/bootstrap.min.js" type="text/javascript"></script>
+<script src="/static/TextHighlighter.min.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function () {
+
+        $("input#conf0_submit").click(function () {
+            submit(1);
+        });
+
+        $("input#conf1_submit").click(function () {
+            submit(2);
+        });
+
+        $("input#conf2_submit").click(function () {
+            submit(3);
+        });
+
+        $("input#untranslated_submit").click(function () {
+            submit(4);
+        });
+
+        function addHighlight() {
+            $("#english_ctx").val($("#englishctx").html());
+
+            $("#list li").remove()
+
+            $("#englishctx span").each(function (index) {
+                $("#list").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+            $("#contentlist li").remove()
+            $("#content span").each(function (index) {
+                $("#contentlist").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+        }
+        function addHighlight2() {
+            $("#gloss_ctx").val($("#glossctx").html());
+
+            $("#list2 li").remove()
+
+            $("#glossctx span").each(function (index) {
+                $("#list2").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+            $("#contentlist2 li").remove()
+            $("#content span").each(function (index) {
+                $("#contentlist2").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+        }
+        function addHighlight3() {
+            $("#english").val($("#en").html());
+
+            $("#list3 li").remove()
+
+            $("#en span").each(function (index) {
+                $("#list3").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+            $("#contentlist3 li").remove()
+            $("#content span").each(function (index) {
+                $("#contentlist3").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+        }
+        function addHighlight4() {
+            $("#gloss").val($("#gl").html());
+
+            $("#list4 li").remove()
+
+            $("#gl span").each(function (index) {
+                $("#list4").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+            $("#contentlist4 li").remove()
+            $("#content span").each(function (index) {
+                $("#contentlist4").append($("<li style='font-size:90%;'>").text($(this).text()));
+            });
+        }
+
+        var removeBtn = document.getElementById('remove');
+        var hltr = new TextHighlighter($("#englishctx").get()[0],
+            {
+                onAfterHighlight: function (range, hl) {
+                    addHighlight();
+                },
+                onRemoveHighlight: function (hl) {
+                    return true;
+                }
+            });
+
+        var hilited_tgt_sent = hltr.doHighlight()
+
+        removeBtn.addEventListener('click', function () {
+            hltr.removeHighlights();
+            addHighlight();
+        });
+        
+        var removeBtn2 = document.getElementById('remove2');
+        var hltr2 = new TextHighlighter($("#glossctx").get()[0],
+            {
+                onAfterHighlight: function (range, hl) {
+                    addHighlight2();
+                },
+                onRemoveHighlight: function (hl) {
+                    return true;
+                }
+            });
+
+        var hilited_tgt_sent2 = hltr2.doHighlight()
+
+        removeBtn2.addEventListener('click', function () {
+            hltr2.removeHighlights();
+            addHighlight2();
+        });
+
+        var removeBtn3 = document.getElementById('remove3');
+        var hltr3 = new TextHighlighter($("#en").get()[0],
+            {
+                onAfterHighlight: function (range, hl) {
+                    addHighlight3();
+                },
+                onRemoveHighlight: function (hl) {
+                    return true;
+                }
+            });
+
+        var hilited_tgt_sent3 = hltr3.doHighlight()
+
+        removeBtn3.addEventListener('click', function () {
+            hltr3.removeHighlights();
+            addHighlight3();
+        });
+
+        var removeBtn4 = document.getElementById('remove4');
+        var hltr4 = new TextHighlighter($("#gl").get()[0],
+            {
+                onAfterHighlight: function (range, hl) {
+                    addHighlight4();
+                },
+                onRemoveHighlight: function (hl) {
+                    return true;
+                }
+            });
+
+        var hilited_tgt_sent4 = hltr4.doHighlight()
+
+        removeBtn4.addEventListener('click', function () {
+            hltr4.removeHighlights();
+            addHighlight4();
+        });
+
+        // keyboard shortcuts for each type
+        $(document).keypress(function (e) {
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            console.log('You pressed ' + keycode)
+            if (keycode == '110') {
+                submit(1);
+            } else if (keycode == '117') {
+                submit(2);
+            } else if (keycode == '116') {
+                submit(3);
+            }
+        });
+
+        function submit(button_id) {
+
+            console.log("submit(" + button_id + ")");
+            var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "button_id").val(button_id);
+            $("#form_element").append($(input));
+            var form_data = $("#form_element").serialize();
+            console.log(form_data)
+            $("#form_element").submit()
+        };
+
+    });
+</script>
