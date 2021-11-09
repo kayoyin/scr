@@ -3,7 +3,7 @@ DGS-Coref is a subset of [The Public DGS Corpus](https://www.sign-lang.uni-hambu
 
 It is under the same [license](https://www.sign-lang.uni-hamburg.de/meinedgs/ling/license_en.html) as the original corpus.
 
-Please cite the papers below if you find this dataset useful:
+Please cite the works below if you find this dataset useful:
 
 ```
 @inproceedings{yin-etal-2021-signed,
@@ -34,5 +34,16 @@ Please cite the papers below if you find this dataset useful:
     url = "https://aclanthology.org/2020.signlang-1.12",
     pages = "75--82",
     ISBN = "979-10-95546-54-2",
+}
+
+@misc{dgscorpus_3,
+  title = {MEINE DGS -- annotiert. {\"O}ffentliches Korpus der Deutschen Geb{\"a}rdensprache, 3. Release / MY DGS -- annotated. Public Corpus of German Sign Language, 3rd release},
+  author = {Konrad, Reiner and Hanke, Thomas and Langer, Gabriele and Blanck, Dolly and Bleicken, Julian and Hofmann, Ilona and Jeziorski, Olga and K{\"o}nig, Lutz and K{\"o}nig, Susanne and Nishio, Rie and Regen, Anja and Salden, Uta and Wagner, Sven and Worseck, Satu and B{\"o}se, Oliver and Jahn, Elena and Schulder, Marc},
+  year = {2020},
+  type = {languageresource},
+  version = {3.0},
+  publisher = {Universit{\"a}t Hamburg},
+  url = {https://doi.org/10.25592/dgs.corpus-3.0},
+  doi = {10.25592/dgs.corpus-3.0}
 }
 ```
