@@ -1,5 +1,5 @@
 # Signed coreference annotation interface
-Based on https://github.com/neulab/interpkeywords/tree/master/annotation
+Adapted from https://github.com/neulab/interpkeywords/tree/master/annotation by [https://github.com/nvog](Nikolai Vogler)
 
 ## Dependencies
 
